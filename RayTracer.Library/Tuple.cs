@@ -68,6 +68,11 @@ namespace RayTracer.Library
         {
             return new Tuple(X * multiplier, Y * multiplier, Z * multiplier, W * multiplier);
         }
+
+        public Tuple Divide(double divisor)
+        {
+            return new Tuple(X / divisor, Y / divisor, Z / divisor, W / divisor);
+        }
     }
 
     public enum TupleType

@@ -139,16 +139,27 @@ namespace RayTracer.UnitTests
             Assert.Equal(expectedResult, actualResult);
         }
 
-        [Fact]
-        public void Can_Multiply_Tuple_By_Scalar_Amount()
+        [Theory]
+        [InlineData(3.5, 3.5, -7, 10.5, -14)]
+        [InlineData(0.5, 0.5, -1, 1.5, -2)]
+        public void Can_Multiply_Tuple_By_Amount(double multiplier, double x, double y, double z, double w)
         {
             //Given
             var a = new Tuple(1, -2, 3, -4);
-            var expectedResult = new Tuple(3.5, -7, 10.5, -14);
 
             //Then
-            var actualResult = a.Multiply(3.5);
-            Assert.Equal(expectedResult, actualResult);
+            Assert.Equal(new Tuple(x, y, z, w), a.Multiply(multiplier));
+        }
+
+        [Theory]
+        [InlineData(2, 0.5, -1, 1.5, -2)]
+        public void Can_Divide_Tuple_By_Amount(double divisor, double x, double y, double z, double w)
+        {
+            //Given
+            var a = new Tuple(1, -2, 3, -4);
+
+            //Then
+            Assert.Equal(new Tuple(x, y, z, w), a.Divide(divisor));
         }
     }
 }
