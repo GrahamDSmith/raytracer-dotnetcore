@@ -73,6 +73,17 @@ namespace RayTracer.Library
         {
             return new Tuple(X / divisor, Y / divisor, Z / divisor, W / divisor);
         }
+
+        public double Magnitude()
+        {
+            return Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2) + Math.Pow(Z, 2));
+        }
+
+        public Tuple Normalize()
+        {
+            var m = this.Magnitude();
+            return this.Divide(m);
+        }
     }
 
     public enum TupleType

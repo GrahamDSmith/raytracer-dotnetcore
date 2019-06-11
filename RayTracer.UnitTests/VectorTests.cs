@@ -40,5 +40,43 @@ namespace RayTracer.UnitTests
             //Then
             Assert.Equal(expected, v.Magnitude());
         }
-    }
+
+        [Fact]
+        public void Can_Normalize_Basic()
+        {
+            //Given
+            var v = new Vector(4, 0, 0);
+            var expectedResult = new Vector(1, 0, 0);
+
+
+            //Then
+            Assert.Equal(expectedResult, v.Normalize());
+        }
+
+        [Fact]
+        public void Can_Normalize_Advanced()
+        {
+            //Given
+            var v = new Vector(1, 2, 3);
+            var sq = System.Math.Sqrt(14);
+            var expectedResult = new Vector(1 / sq, 2 / sq, 3 / sq);
+
+            //Then
+            Assert.Equal(expectedResult, v.Normalize());
+        }
+
+        [Fact]
+        public void Magnitude_OfNormalized_Vector_Is_One()
+        {
+            //Given
+            var v = new Vector(1, 2, 3);
+            var expectedResult = 1;
+
+            //When
+            var norm = v.Normalize();
+
+            //Then
+            Assert.Equal(expectedResult, norm.Magnitude());
+        }
+}
 }
