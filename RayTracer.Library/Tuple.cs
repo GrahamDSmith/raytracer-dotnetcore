@@ -84,6 +84,15 @@ namespace RayTracer.Library
             var m = this.Magnitude();
             return this.Divide(m);
         }
+
+        public double Dot(Tuple other)
+        {
+            return 
+                X * other.X + 
+                Y * other.Y + 
+                Z * other.Z + 
+                W * other.W;
+        }
     }
 
     public enum TupleType

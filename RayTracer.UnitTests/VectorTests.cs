@@ -78,5 +78,31 @@ namespace RayTracer.UnitTests
             //Then
             Assert.Equal(expectedResult, norm.Magnitude());
         }
-}
+
+        [Fact]
+        public void Can_Calculate_Dot_ProductOf_Two_Tuples()
+        {
+            //Given
+            var a = new Vector(1, 2, 3);
+            var b = new Vector(2, 3, 4);
+
+            //Then
+            Assert.Equal(20, a.Dot(b));
+        }
+
+        [Fact]
+        public void Can_Calculate_Cross_ProductOf_Two_Vectors()
+        {
+            //Given
+            var a = new Vector(1, 2, 3);
+            var b = new Vector(2, 3, 4);
+
+            var expectedResult1 = new Vector(-1, 2, -1);
+            var expectedResult2 = new Vector(1, -2, 1);
+
+            //Then
+            Assert.Equal(expectedResult1, a.Cross(b));
+            Assert.Equal(expectedResult2, b.Cross(a));
+        }
+    }
 }
